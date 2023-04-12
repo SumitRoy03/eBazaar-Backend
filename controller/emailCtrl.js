@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 const asyncHandler = require("express-async-handler");
 
 const sendEmail = asyncHandler(async (data, req, res) => {
-  let transporter = createTransport({
+  let transporter = nodemailer.createTransport({
     service:'gmail',
     host: "smtp.gmail.com",
     auth: {

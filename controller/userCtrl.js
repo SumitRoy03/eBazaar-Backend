@@ -141,6 +141,7 @@ const logout = asyncHandler(async (req, res) => {
     httpOnly: true,
     secure: true,
   });
+  console.log("user logged out!")
   res.sendStatus(204); // forbidden
 });
 
@@ -304,7 +305,7 @@ const forgotPasswordToken = asyncHandler(async (req, res) => {
       subject: "Forgot Password Link",
       htm: resetURL,
     };
-    sendEmail(data);
+    // sendEmail(data);
     res.json(token);
   } catch (error) {
     throw new Error(error);

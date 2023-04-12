@@ -1,6 +1,17 @@
 const mongoose = require("mongoose"); // Erase if already required
 const bcrypt = require("bcrypt");
 const crypto = require("crypto");
+
+//address Schema
+var addressSchema = new mongoose.Schema({
+  street: String,
+  city: String,
+  phone: String,
+  zip: Number,
+  country: String
+});
+
+
 // Declare the Schema of the Mongo model
 var userSchema = new mongoose.Schema(
   {
@@ -38,9 +49,7 @@ var userSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
-    address: {
-      type: String,
-    },
+    address: [addressSchema],
     wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: "Product" }],
     refreshToken: {
       type: String,
